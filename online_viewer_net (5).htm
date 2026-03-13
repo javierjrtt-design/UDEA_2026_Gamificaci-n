@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamificación UDEA 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --amarillo-principal: #F6D104;
+            --morado-acento: #910CCB;
+            --gris-claro-ui: #D5D4D2;
+            --blanco: #FCFCFC;
+            --texto-oscuro: #403F2F;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            background-color: var(--blanco);
+            color: var(--texto-oscuro);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .bg-primary { background-color: var(--amarillo-principal); }
+        .bg-accent { background-color: var(--morado-acento); }
+        .bg-ui-gray { background-color: var(--gris-claro-ui); }
+        .text-accent { color: var(--morado-acento); }
+        .border-ui-gray { border-color: var(--gris-claro-ui); }
+
+        .tab-btn.active {
+            background-color: var(--amarillo-principal);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card-mda:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white border-b-2 border-ui-gray px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="bg-primary p-2 rounded-xl">
+                    <i data-lucide="graduation-cap" class="w-6 h-6 text-[#403F2F]"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-black uppercase leading-none m-0">UDEA 2026</h1>
+                    <span class="text-[0.65rem] font-bold text-accent uppercase tracking-widest">Cátedra de Gamificación</span>
+                </div>
+            </div>
+            <div class="hidden md:block">
+                <span class="text-[0.7rem] font-extrabold uppercase text-[#D5D4D2]">Gamificación_UDEA_2026</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-12">
+        <!-- HERO -->
+        <div class="text-center mb-16">
+            <h2 class="text-5xl md:text-6xl font-black mb-6 uppercase italic tracking-tighter leading-none">
+                Estrategias de <span class="text-accent">Inmersión</span>
+            </h2>
+            <p class="max-w-3xl mx-auto text-lg font-medium opacity-80">
+                Integrando el Modelo MDA y las Psicologías de Usuario para el diseño de experiencias educativas transformadoras.
+            </p>
+        </div>
+
+        <!-- NAVEGACIÓN -->
+        <div class="bg-ui-gray p-1.5 rounded-2xl mb-12 flex max-w-md mx-auto shadow-inner">
+            <button onclick="showSection('mda')" class="tab-btn active flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all" id="btn-mda">
+                <i data-lucide="boxes" class="w-4 h-4"></i> Marco MDA
+            </button>
+            <button onclick="showSection('perfiles')" class="tab-btn flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all" id="btn-perfiles">
+                <i data-lucide="users" class="w-4 h-4"></i> Perfiles
+            </button>
+            <button onclick="showSection('analisis')" class="tab-btn flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all" id="btn-analisis">
+                <i data-lucide="layers" class="w-4 h-4"></i> Análisis
+            </button>
+        </div>
+
+        <!-- CONTENIDO: MDA -->
+        <div id="mda" class="content-section active space-y-12">
+            <div class="bg-accent text-white p-8 md:p-12 rounded-[3rem] relative overflow-hidden">
+                <div class="relative z-10">
+                    <span class="text-[0.65rem] font-black tracking-[0.2em] uppercase block mb-4">Framework de Ingeniería</span>
+                    <h3 class="text-4xl font-black italic uppercase mb-6 flex items-center gap-4">
+                        <i data-lucide="boxes" class="w-10 h-10 text-primary"></i> Modelo MDA
+                    </h3>
+                    <p class="text-xl leading-relaxed max-w-2xl font-medium">
+                        El acrónimo para <span class="border-b-4 border-primary pb-1">Mechanics, Dynamics, and Aesthetics</span>. 
+                        Entendemos el juego como un sistema formal que genera experiencias emocionales.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- MECANICAS -->
+                <div class="card-mda bg-white border-2 border-ui-gray border-t-8 border-t-accent p-8 rounded-[2.5rem]">
+                    <div class="bg-primary w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="hammer" class="w-8 h-8 text-[#403F2F]"></i>
+                    </div>
+                    <h4 class="text-2xl font-black uppercase italic">Mecánicas</h4>
+                    <p class="text-[0.65rem] font-bold text-accent uppercase mb-4">(Las Reglas)</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="arrow-right" class="w-4 h-4 text-primary"></i> Puntos y niveles</li>
+                        <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="arrow-right" class="w-4 h-4 text-primary"></i> Límites de tiempo</li>
+                        <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="arrow-right" class="w-4 h-4 text-primary"></i> Bienes virtuales</li>
+                    </ul>
+                </div>
+
+                <!-- DINAMICAS -->
+                <div class="card-mda bg-white border-2 border-ui-gray border-t-8 border-t-primary p-8 rounded-[2.5rem]">
+                    <div class="bg-ui-gray w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="cpu" class="w-8 h-8 text-accent"></i>
+                    </div>
+                    <h4 class="text-2xl font-black uppercase italic">Dinámicas</h4>
+                    <p class="text-[0.65rem] font-bold text-accent uppercase mb-4">(Interacciones)</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="arrow-right" class="w-4 h-4 text-accent"></i> Competencia</li>
+                        <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="arrow-right" class="w-4 h-4 text-accent"></i> Gestión de recursos</li>
+                        <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="arrow-right" class="w-4 h-4 text-accent"></i> Exploración</li>
+                    </ul>
+                </div>
+
+                <!-- ESTETICAS -->
+                <div class="card-mda bg-white border-2 border-ui-gray border-t-8 border-t-accent p-8 rounded-[2.5rem]">
+                    <div class="bg-primary w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="smile" class="w-8 h-8 text-[#403F2F]"></i>
+                    </div>
+                    <h4 class="text-2xl font-black uppercase italic">Estéticas</h4>
+                    <p class="text-[0.65rem] font-bold text-accent uppercase mb-4">(Emociones)</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="arrow-right" class="w-4 h-4 text-primary"></i> Maestría</li>
+                        <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="arrow-right" class="w-4 h-4 text-primary"></i> Narrativa</li>
+                        <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="arrow-right" class="w-4 h-4 text-primary"></i> Expresión</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENIDO: PERFILES -->
+        <div id="perfiles" class="content-section space-y-16">
+            <section>
+                <h3 class="text-center text-3xl font-black uppercase italic mb-10">Taxonomía Richard Bartle</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-white border-2 border-ui-gray p-6 rounded-3xl text-center">
+                        <i data-lucide="trophy" class="w-8 h-8 text-accent mx-auto mb-4"></i>
+                        <h4 class="font-black text-sm mb-2">Triunfadores</h4>
+                        <p class="text-xs font-semibold opacity-70">Metas y estatus.</p>
+                    </div>
+                    <div class="bg-white border-2 border-ui-gray p-6 rounded-3xl text-center">
+                        <i data-lucide="map" class="w-8 h-8 text-accent mx-auto mb-4"></i>
+                        <h4 class="font-black text-sm mb-2">Exploradores</h4>
+                        <p class="text-xs font-semibold opacity-70">Descubrimiento.</p>
+                    </div>
+                    <div class="bg-white border-2 border-ui-gray p-6 rounded-3xl text-center">
+                        <i data-lucide="users" class="w-8 h-8 text-accent mx-auto mb-4"></i>
+                        <h4 class="font-black text-sm mb-2">Socializadores</h4>
+                        <p class="text-xs font-semibold opacity-70">Interacción.</p>
+                    </div>
+                    <div class="bg-white border-2 border-ui-gray p-6 rounded-3xl text-center">
+                        <i data-lucide="swords" class="w-8 h-8 text-accent mx-auto mb-4"></i>
+                        <h4 class="font-black text-sm mb-2">Asesinos</h4>
+                        <p class="text-xs font-semibold opacity-70">Competición.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-center text-3xl font-black uppercase italic mb-10">User Types de Marczewski</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="flex items-center gap-4 bg-white border-2 border-ui-gray p-5 rounded-2xl">
+                        <i data-lucide="heart" class="w-6 h-6 text-accent"></i>
+                        <div><h4 class="font-black text-sm">Filántropos</h4><p class="text-xs font-semibold opacity-60">Propósito</p></div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white border-2 border-ui-gray p-5 rounded-2xl">
+                        <i data-lucide="compass" class="w-6 h-6 text-accent"></i>
+                        <div><h4 class="font-black text-sm">Espíritus Libres</h4><p class="text-xs font-semibold opacity-60">Autonomía</p></div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white border-2 border-ui-gray p-5 rounded-2xl">
+                        <i data-lucide="zap" class="w-6 h-6 text-accent"></i>
+                        <div><h4 class="font-black text-sm">Triunfadores</h4><p class="text-xs font-semibold opacity-60">Maestría</p></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CONTENIDO: ANALISIS -->
+        <div id="analisis" class="content-section space-y-12">
+            <div class="border-4 border-ui-gray rounded-[2.5rem] overflow-hidden">
+                <div class="bg-[#403F2F] text-white p-6">
+                    <h3 class="text-xl font-black uppercase italic">Matriz de Aplicación Estratégica</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="bg-ui-gray">
+                            <tr>
+                                <th class="p-4 text-[0.7rem] font-black uppercase">Criterio</th>
+                                <th class="p-4 text-[0.7rem] font-black uppercase text-accent">Bartle</th>
+                                <th class="p-4 text-[0.7rem] font-black uppercase text-accent">Marczewski</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-medium">
+                            <tr class="border-b border-ui-gray">
+                                <td class="p-6 font-black text-sm">Foco Principal</td>
+                                <td class="p-6 text-sm">Acción e Interacción</td>
+                                <td class="p-6 text-sm">Motivación Intrínseca</td>
+                            </tr>
+                            <tr class="border-b border-ui-gray">
+                                <td class="p-6 font-black text-sm">Contexto de Uso</td>
+                                <td class="p-6 text-sm">Entornos Virtuales de Juego</td>
+                                <td class="p-6 text-sm">Sistemas Gamificados</td>
+                            </tr>
+                            <tr>
+                                <td class="p-6 font-black text-sm">Flexibilidad</td>
+                                <td class="p-6 text-sm">Categorías Estáticas</td>
+                                <td class="p-6 text-sm">Perfiles Dinámicos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-primary p-10 rounded-[3rem] flex flex-col md:flex-row items-center gap-8 shadow-lg">
+                <i data-lucide="rocket" class="w-16 h-16 text-accent"></i>
+                <div>
+                    <h4 class="text-2xl font-black uppercase italic mb-2">Estrategia UDEA 2026</h4>
+                    <p class="text-lg font-bold italic opacity-90">
+                        La clave está en diseñar experiencias que trasciendan los puntos y conecten con la motivación intrínseca del estudiante mediante el balance del modelo MDA.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-20 py-12 border-t-2 border-ui-gray text-center">
+        <p class="text-[0.7rem] font-black text-[#D5D4D2] uppercase tracking-[0.4em]">
+            Gamificación_UDEA_2026 • Innovación Educativa
+        </p>
+    </footer>
+
+    <script>
+        // Inicializar iconos
+        lucide.createIcons();
+
+        // Función para cambiar secciones
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Desactivar todos los botones
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Mostrar sección seleccionada
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Activar botón correspondiente
+            document.getElementById('btn-' + sectionId).classList.add('active');
+
+            // Volver a renderizar iconos (por si acaso hay nuevos en la sección)
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
